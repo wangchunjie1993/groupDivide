@@ -1,6 +1,14 @@
 def main():
+	import sys
+	if len(sys.argv)!=3:
+		print "Must be 3 args!"
+		return 
+		
+	filename = sys.argv[1]
+	groupNum = int(sys.argv[2])
+
 	institutes = {}
-	f = open("students.csv",'r')
+	f = open(filename,'r')
 	f.readline()
 	for line in f:
 		instituteName = line.split(',')[4]
@@ -12,7 +20,6 @@ def main():
 	f.close()
 
 	groups=[]
-	groupNum = 5
 	for i in range(groupNum):
 		groups.append([])
 
