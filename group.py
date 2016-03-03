@@ -2,13 +2,18 @@ def main():
 	import sys
 	if len(sys.argv)!=3:
 		print "Must be 3 args!"
-		return 
+		exit(1)
 		
 	filename = sys.argv[1]
 	groupNum = int(sys.argv[2])
 
 	institutes = {}
-	f = open(filename,'r')
+	try:
+		f = open(filename,'r')
+	except IOError,e:
+		print e
+		exit(1)
+
 	f.readline()
 	for line in f:
 		instituteName = line.split(',')[4]
